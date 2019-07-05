@@ -1,0 +1,20 @@
+{
+  "name": "lunarbeta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd src && pm2 start --name 'Lunarbeta' index.js" ,
+    "test": "cd src && node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^3.0.1",
+    "discord.js": "git+https://github.com/discordjs/discord.js.git",
+    "klasa": "github:dirigeants/klasa",
+    "node-fetch": "^2.6.0",
+    "rethinkdb-ts": "^2.4.0-rc.15"
+  }
+}
