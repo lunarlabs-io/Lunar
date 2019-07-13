@@ -1,4 +1,4 @@
-# Product Name
+# Lunar Bot
 >A Fun Moderation Bot
 
 <!-- [![NPM Version][npm-image]][npm-url]
