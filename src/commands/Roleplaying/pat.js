@@ -5,7 +5,7 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			aliases: [],
-            description: 'Pat a member',
+            description: 'Pat a member on the head',
             runIn: ['text'],
             permissionLevel: 0,
 			usage: '<user:member>'
