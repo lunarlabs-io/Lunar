@@ -28,7 +28,7 @@ module.exports = class extends Event {
         if (!log) return
         const embed = new MessageEmbed()
         // Set the title of the field
-        .setTitle(`User Has Been Joined ${member.guild.name}`)
+        .setTitle(`User Has Joined ${member.guild.name}`)
         // Set the color of the embed
         .setColor(0xFF0000)
        

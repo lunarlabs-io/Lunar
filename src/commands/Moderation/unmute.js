@@ -18,8 +18,8 @@ module.exports = class extends Command {
 		if (!member.roles.has(msg.guild.settings.roles.muted)) throw 'This user is not muted.';
 
 		await member.roles.remove(msg.guild.settings.roles.muted);
-
-		return msg.send(`${member.user.tag} was unmuted.${reason ? ` With reason of: ${reason}` : ''}`);
+		const log = msg.guild.channels.get(msg.guild.settings.channels.log);
+		return log.send(`${member.user.tag} was unmuted.${reason ? ` With reason of: ${reason}` : ''}`);
 	}
 
 };

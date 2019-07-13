@@ -7,8 +7,8 @@ module.exports = class extends Command {
 			permissionLevel: 6,
 			requiredPermissions: ['BAN_MEMBERS'],
 			runIn: ['text'],
-			description: 'Bans a mentioned user. Currently does not require reason (no mod-log).',
-			usage: '<member:user> [reason:...string]',
+			description: 'Bans a mentioned user.',
+			usage: '<member:user> <reason:...string>',
 			usageDelim: ' '
 		});
 	}
@@ -27,7 +27,8 @@ module.exports = class extends Command {
 		if (reason) options.reason = reason;
 
 		await msg.guild.members.ban(user, options);
-		return msg.send(`${member.user.tag} got banned.${reason ? ` With reason of: ${reason}` : ''}`);
+		const log = msg.guild.channels.get(msg.guild.settings.channels.log);
+		return log.send(`${member.user.tag} got banned.${reason ? ` With reason of: ${reason}` : ''}`);
 	}
 
 };

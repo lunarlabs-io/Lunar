@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd src && pm2 start --name 'Lunarbeta' index.js" ,
+    "start": "cd src && pm2 start --name 'Lunarbeta' index.js",
     "test": "cd src && node index.js"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
     "discord.js": "git+https://github.com/discordjs/discord.js.git",
     "klasa": "github:dirigeants/klasa",
     "node-fetch": "^2.6.0",
-    "rethinkdb-ts": "^2.4.0-rc.15"
+    "rethinkdb-ts": "^2.4.0-rc.15",
+    "sqlite": "^3.0.3"
   }
 }

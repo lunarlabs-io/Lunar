@@ -7,8 +7,8 @@ module.exports = class extends Command {
 			permissionLevel: 6,
 			requiredPermissions: ['BAN_MEMBERS'],
 			runIn: ['text'],
-			description: 'Softbans a mentioned user. Currently does not require reason (no mod-log).',
-			usage: '<member:user> [days:int{1,7}] [reason:...string]',
+			description: 'Softbans a mentioned user.',
+			usage: '<member:user> [days:int{1,7}] <reason:...string>',
 			usageDelim: ' '
 		});
 	}
@@ -28,7 +28,8 @@ module.exports = class extends Command {
 
 		await msg.guild.members.ban(user, options);
 		await msg.guild.members.unban(user, 'Softban released.');
-		return msg.send(`${member.user.tag} got softbanned.${reason ? ` With reason of: ${reason}` : ''}`);
+		const log = msg.guild.channels.get(msg.guild.settings.channels.log);
+		return log.send(`${member.user.tag} got softbanned.${reason ? ` With reason of: ${reason}` : ''}`);
 	}
 
 };

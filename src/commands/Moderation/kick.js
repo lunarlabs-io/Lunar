@@ -7,13 +7,14 @@ module.exports = class extends Command {
 			permissionLevel: 6,
 			requiredPermissions: ['KICK_MEMBERS'],
 			runIn: ['text'],
-			description: 'Kicks a mentioned user. Currently does not require reason (no mod-log).',
-			usage: '<member:member> [reason:...string]',
+			description: 'Kicks a mentioned user.',
+			usage: '<member:member> <reason:...string>',
 			usageDelim: ' '
 		});
 	}
 
 	async run(msg, [member, reason]) {
+		const log = msg.guild.channels.get(msg.guild.settings.channels.log);
 		if (member.id === msg.author.id) throw 'Why would you kick yourself?';
 		if (member.id === this.client.user.id) throw 'Have I done something wrong?';
 
@@ -21,7 +22,8 @@ module.exports = class extends Command {
 		if (!member.kickable) throw 'I cannot kick this user.';
 
 		await member.kick(reason);
-		return msg.send(`${member.user.tag} got kicked.${reason ? ` With reason of: ${reason}` : ''}`);
+
+		return log.send(`${member.user.tag} got kicked.${reason ? ` With reason of: ${reason}` : ''}`);
 	}
 
 };

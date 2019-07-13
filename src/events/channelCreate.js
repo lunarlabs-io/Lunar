@@ -13,7 +13,7 @@ module.exports = class extends Event {
         if (!channel.guild) return;
         
         
-        console.log(channel);
+      //  console.log(channel);
         const log = channel.guild.channels.get(channel.guild.settings.channels.log);
         //console.log(log) 
         if (!log) return;
