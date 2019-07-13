@@ -1,5 +1,5 @@
 const { Command } = require('klasa');
-const { MessageAttachment } = require('discord.js');
+//const { MessageAttachment } = require('discord.js');
 const util = require('util')
 const fs = require('fs')
 const streamPipeline = util.promisify(require('stream').pipeline)
@@ -24,14 +24,11 @@ module.exports = class extends Command {
 
 	async run(msg, [folder]) {
         const [attachment] = msg.attachments.values();
-        
+       
         if (!attachment || !attachment.height) throw 'Please upload an image.';
+        if (attachment.size > 8000) return msg.reply("image is to large!");
         if (!attachment.filename === 'gif') return msg.reply("i only accept gifs :P");
-        const image = await fetch(attachment.url)
-			.then(response => response.buffer())
-			.catch(() => {
-				throw 'I could not download the file. Can you try again with another image?';
-			});
+        
             
         
             let filenewname = Math.floor(Math.random() * Math.floor(50000));
