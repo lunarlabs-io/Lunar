@@ -14,7 +14,7 @@
     "chokidar": "^3.0.1",
     "discord.js": "git+https://github.com/discordjs/discord.js.git",
     "klasa": "github:dirigeants/klasa",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "rethinkdb-ts": "^2.4.0-rc.15",
     "sqlite": "^3.0.3"
   }
